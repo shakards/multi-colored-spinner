@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinning Loader</title>
+    <style>
+        /* Loader Styles */
+        .loader {
+            width: 50px;
+            aspect-ratio: 1;
+            display: grid;
+            border-radius: 50%;
+            background: conic-gradient(#25b09b 25%, #f03355 0 50%, #514b82 0 75%, #ffa516 0);
+            animation: l22 2s infinite linear;
+        }
+
+        /* Pseudo-elements for additional layers */
+        .loader::before,
+        .loader::after {
+            content: "";
+            grid-area: 1/1;
+            margin: 15%;
+            border-radius: 50%;
+            background: inherit;
+            animation: inherit;
+        }
+
+        /* Adjust the size and animation duration for the ::after pseudo-element */
+        .loader::after {
+            margin: 25%;
+            animation-duration: 3s;
+        }
+
+        /* Keyframes for rotation */
+        @keyframes l22 {
+            100% { transform: rotate(1turn); }
+        }
+
+        /* Centering the Loader */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+</body>
+</html>
